@@ -4,15 +4,18 @@ require 'typhoeus'
 require 'json'
 
 get '/' do
-  html = %q(
-  <html><head><title>Movie Search</title></head><body>
-  <h1>Find a Movie!</h1>
-  <form accept-charset="UTF-8" action="/result" method="post">
-    <label for="movie">Search for:</label>
-    <input id="movie" name="movie" type="text" />
-    <input name="commit" type="submit" value="Search" /> 
-  </form></body></html>
-  )
+
+  erb :index
+  # PHASE 1 put HTML into views files
+  # html = %q(
+  # <html><head><title>Movie Search</title></head><body>
+  # <h1>Find a Movie!</h1>
+  # <form accept-charset="UTF-8" action="/result" method="post">
+  #   <label for="movie">Search for:</label>
+  #   <input id="movie" name="movie" type="text" />
+  #   <input name="commit" type="submit" value="Search" /> 
+  # </form></body></html>
+  # )
 end
 
 post '/result' do
@@ -22,21 +25,19 @@ post '/result' do
   response = Typhoeus.get("www.omdbapi.com", :params => {:s => search_str})
 
 
-  result = JSON.parse(response.body)["Search"] #gets the search key of that hash
-
-  #result.each { |a| puts "#{a["Title"]} - #{a["Year"]}" }
+  @result = JSON.parse(response.body)["Search"] #gets the search key of that hash
 
 
   # Modify the html output so that a list of movies is provided.
-  html_str = "<html><head><title>Movie Search Results</title></head><body><h1>Movie Results</h1>\n<ul>"
+  # html_str = "<html><head><title>Movie Search Results</title></head><body><h1>Movie Results</h1>\n<ul>"
   
 
-  result.each { |x| 
-    html_str += "<li><a href='/poster/#{x["imdbID"]}'>#{x["Title"]} - #{x["Year"]}</a></li>" } 
+  # result.each { |x| 
+  #   html_str += "<li><a href='/poster/#{x["imdbID"]}'>#{x["Title"]} - #{x["Year"]}</a></li>" } 
 
-  html_str += "</ul></body></html>"
+  # html_str += "</ul></body></html>"
 
-
+   erb :show
    
 
 end
