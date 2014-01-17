@@ -1,0 +1,12 @@
+<h1>Movie Results</h1>
+
+<ul>
+  
+
+ <% @result.each do |x| %>
+    <li><a href= 
+    	<%= '/poster/#{x["imdbID"]}' %> > 
+    	<%= "#{x["Title"]} - #{x["Year"]}" %> </a></li> 
+    <% end %>
+
+ </ul>
