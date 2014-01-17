@@ -19,6 +19,7 @@ get '/' do
 end
 
 post '/result' do
+
   search_str = params[:movie]
 
   # Make a request to the omdb api here!
@@ -37,7 +38,7 @@ post '/result' do
 
   # html_str += "</ul></body></html>"
 
-   erb :show
+   erb :result
    
 
 end
@@ -45,18 +46,17 @@ end
 
 get '/poster/:imdb' do |imdb_id|
 
-  # imdb_id = params[:imdb]
   # Make another api call here to get the url of the poster.
   response = Typhoeus.get("www.omdbapi.com", :params => {:i => imdb_id})
-  result = JSON.parse(response.body) #gets the search key of that hash
-
-  html_str = "<html><head><title>Movie Poster</title></head><body><h1>Movie Poster</h1>\n"
+  @result = JSON.parse(response.body)
+  # html_str = "<html><head><title>Movie Poster</title></head><body><h1>Movie Poster</h1>\n"
   
   
-  html_str += "<h3>#{result["Title"]}</h3>"
-  html_str += "<img src=#{result["Poster"]}></img>"
+  # html_str += "<h3>#{result["Title"]}</h3>"
+  # html_str += "<img src=#{result["Poster"]}></img>"
 
-  html_str += '<br /><a href="/">New Search</a></body></html>'
+  # html_str += '<br /><a href="/">New Search</a></body></html>'
 
+  erb :poster
 end
 
