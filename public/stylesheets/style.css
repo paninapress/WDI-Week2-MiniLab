@@ -1,0 +1,55 @@
+/* CSS Contents */
+/*
+1. Overall styling
+2, For small phones
+2. For tablets
+3. For computers
+*/
+
+/****** 1. Overall styling ******/
+body {
+	background-color: #66A3D2;
+}
+
+
+/****** 2. For small phones ******/
+.col-xs-12 {
+	color: #033E6B;
+	margin: 30px 5px;
+}
+h1.col-xs-12 {
+	color: #033E6B;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.left {
+	float: left;
+	height: 50px;
+	width: 20%;
+	background-color: green;
+	text-align: center;
+
+}
+.right{
+	float: right;
+	height: 50px;
+	width: 80%;
+	background-color: red;
+}
+/*body {
+	background-color: #009999;
+	
+}
+
+.container {
+	background-color: #33CCCC;
+}
+
+
+h1 {
+	color: #006363;
+	padding: 10px 5px;
+
+}*/
+

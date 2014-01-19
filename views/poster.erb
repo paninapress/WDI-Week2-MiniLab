@@ -1,19 +1,58 @@
-
-<h1> <%= "#{@result["Title"]}" %>: Movie Poster</h1>
- 
-<img src= <%= "#{@result["Poster"]}" %> ></img>
-
-<h3> Plot: <%= "#{@result["Plot"]}" %> </h3>
-<h3> Released: <%= "#{@result["Released"]}" %> </h3>
-<h3> Rated: <%= "#{@result["Rated"]}" %> </h3>
-<h3> Runtime: <%= "#{@result["Runtime"]}" %> </h3>
-<h3> Genre: <%= "#{@result["Genre"]}" %> </h3>
-<h3> Director(s): <%= "#{@result["Director"]}" %> </h3>
-<h3> Actors <%= "#{@result["Actors"]}" %> </h3>
-
-<h4> Want even more info on "#{@result["Title"]}" %>? Check out the official <a href=http://www.imdb.com/title/<%= "#{@result["imdbID"]}" %> >IMDB page here.</a></h4>
-
-<br />
-
-<a href="/">New Search</a></body></html>'
-  
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1> <%= "#{@result["Title"]}" %>: Movie Poster</h1>
+		</div>
+	</div><!--end of row-->
+	<div class="row"> 
+		<div class="col-xs-12">
+			<img src= <%= "#{@result["Poster"]}" %> ></img>
+		</div>
+	</div><!--end of row-->	
+	<div class="row">
+		<div class="col-xs-12">
+			<h3> Plot:  </h3>
+				<p><%= "#{@result["Plot"]}" %></p>
+		</div>
+	</div><!--end of row-->	
+	<div class="row">
+		<div class="col-xs-3 left">
+			<h3> Director(s): </h3>
+		</div>
+		<div class="col-xs-9 right">
+			<p><%= "#{@result["Director"]}" %></p>
+		</div>
+	</div> <!--end of row-->
+	<div class="row">
+		<div class="col-xs-3 left">
+			<h3> Actors: </h3>
+		</div>
+		<div class="col-xs-9 right">
+			<p><%= "#{@result["Actors"]}" %></p>
+		</div>
+	</div><!--end of row-->	
+	<div class="row">
+		<div class="col-xs-12">
+			<h3> Genre: </h3>
+				<p><%= "#{@result["Genre"]}" %></p>
+			<h3> Rated: </h3>
+				<p><%= "#{@result["Rated"]}" %></p>
+			<h3> Released: </h3>
+				<p><%= "#{@result["Released"]}" %></p>
+			<h3> Runtime: </h3>
+				<p><%= "#{@result["Runtime"]}" %></p>	
+		</div>
+	</div>	<!--end of row-->
+	
+	<div class="row">
+		<div class="col-xs-12">
+			<h4> Want even more info on <%= "#{@result["Title"]}" %>? Check out the official <a href=http://www.imdb.com/title/<%= "#{@result["imdbID"]}" %> >IMDB page here.</a></h4>
+		</div>
+	</div><!--end of row-->	
+			<br />
+	<div class="row">
+		<div class="col-xs-12">
+			<a href="/">New Search</a>
+		</div>
+	</div><!--end of row-->	
+</div> <!--end of container-->
